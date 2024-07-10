@@ -1,0 +1,33 @@
+{
+  "name": "chart-react-native",
+  "version": "1.0.1",
+  "description": "Component for data Visualization on Charts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tushar Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "15.7.2"
+  },
+  "devDependencies": {
+    "react": "^16.12.0",
+    "react-native": "^0.61.5"
+  },
+  "keywords": [
+    "react",
+    "react native",
+    "android",
+    "ios",
+    "ipad",
+    "iphone",
+    "utility",
+    "component",
+    "native",
+    "charts",
+    "bar chart",
+    "horizontal bar chart",
+    "vertical bar chart"
+  ]
+}

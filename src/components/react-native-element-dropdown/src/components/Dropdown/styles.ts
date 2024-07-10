@@ -1,0 +1,72 @@
+import { StyleSheet } from 'react-native';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
+
+export const styles = StyleSheet.create({
+  mainWrap: {
+    justifyContent: 'center',
+  },
+  container: {
+    flexShrink: 1,
+    borderWidth: 0.5,
+    borderColor: '#EEEEEE',
+    backgroundColor: '#f2f2f2',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  flex1: {
+    flex: 1,
+  },
+  flexShrink: {
+    flexShrink: 1,
+  },
+  wrapTop: {
+    justifyContent: 'flex-end',
+  },
+  dropdown: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: 35,
+    width: widthPercentageToDP('40%') - 35
+  },
+  title: {
+    marginVertical: 5,
+    fontSize: 16,
+  },
+  item: {
+    paddingVertical: 12,
+    paddingHorizontal:10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  textItem: {
+    flex: 1,
+    fontSize: 16,
+    color: 'black'
+  },
+  icon: {
+    width: 20,
+    height: 20,
+  },
+  textError: {
+    color: 'red',
+    fontSize: 14,
+    marginTop: 10,
+  },
+  input: {
+    borderWidth: 0.5,
+    borderColor: '#DDDDDD',
+    borderRadius:10,
+    paddingHorizontal: 8,
+    marginBottom: 8,
+    margin: 6,
+    height: 45,
+  },
+});

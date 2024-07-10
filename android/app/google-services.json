@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "213715275162",
+    "project_id": "vardhmankrupa-55f50",
+    "storage_bucket": "vardhmankrupa-55f50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213715275162:android:353747156d3b5c4406fe23",
+        "android_client_info": {
+          "package_name": "com.vardhmankrupa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213715275162-kg48nboleshptge21m2k73tt39eae9th.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmbmz-2C2QckJSHVCbWEyMqddnr7IqyCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213715275162-kg48nboleshptge21m2k73tt39eae9th.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213715275162-5unij5cqr8a7kp3ec2qdtcp0giec47ki.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vardhmankrupa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
