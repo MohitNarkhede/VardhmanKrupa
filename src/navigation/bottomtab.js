@@ -84,7 +84,7 @@ export default class BottomTab extends React.Component {
                                 || (dimen.height === 812 || dimen.width === 812)
                                 || (dimen.height === 844 || dimen.width === 844)
                                 || (dimen.height === 896 || dimen.width === 896)
-                                || (dimen.height === 926 || dimen.width === 926)) ? 28 : 8 : 8,
+                                || (dimen.height === 926 || dimen.width === 926)) ? 28 : 25 : 8,
                                 backgroundColor: "#4d4e4e",
                                 alignItems: 'center',
                                 borderRadius: 40,

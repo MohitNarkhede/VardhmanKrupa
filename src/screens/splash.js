@@ -74,6 +74,11 @@ export default class Splash extends React.Component {
     //   model: deviceInfo.model,
     // });
 
+
+  const apnsToken = await messaging().getAPNSToken();
+  await messaging().setAPNSToken('1235');
+  console.log('apnsToken!', apnsToken);
+  
     const authorizationStatus = await messaging().requestPermission();
     const registerStatus = await messaging().registerDeviceForRemoteMessages();
 
