@@ -12,6 +12,7 @@ import {
   Linking,
   SafeAreaView,
   Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import Colors from '../common/Colors';
 import {CommonActions} from '@react-navigation/native';
@@ -84,6 +85,10 @@ export default class Splash extends React.Component {
 
     if (authorizationStatus) {
       console.log('Permission status:', authorizationStatus);
+    }
+
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS)
     }
 
     PushNotification.configure({
