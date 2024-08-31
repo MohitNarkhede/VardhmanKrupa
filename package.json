@@ -11,6 +11,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@bam.tech/react-native-image-resizer": "^3.0.10",
     "@likashefqet/react-native-image-zoom": "^3.0.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-camera-roll/camera-roll": "^7.8.1",
@@ -33,7 +34,7 @@
     "patch-package": "^8.0.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-native": "0.74.3",
+    "react-native": "0.74.4",
     "react-native-animatable": "^1.4.0",
     "react-native-device-info": "^11.1.0",
     "react-native-floating-action-menu": "^2.0.0",

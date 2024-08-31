@@ -425,18 +425,18 @@ export default class Cart extends React.PureComponent {
                                 // contentContainerStyle={{ flexGrow: 1 }}
                                 data={this.state.products}
                                 extraData={this.state.refresh}
-                                removeClippedSubviews={true}
+                                // removeClippedSubviews={true}
                                 // maxToRenderPerBatch={800}
-                                // updateCellsBatchingPeriod={1000}
-                                // disableVirtualization={true}
-                                // legacyImplementation={true}
+                                updateCellsBatchingPeriod={1000}
+                                disableVirtualization={true}
+                                legacyImplementation={true}
                                 // onEndReached={this.handLoadMore}
                                 // onEndReachedThreshold={0.2}
-                                // windowSize={10}
-                                // maxToRenderPerBatch={10}
-                                // getItemLayout={(data, index) => (
-                                //     {length: heightPercentageToDP('50%'), offset: heightPercentageToDP('50%') * index, index}
-                                // )}
+                                windowSize={5}
+                                maxToRenderPerBatch={10}
+                                getItemLayout={(data, index) => (
+                                    {length: heightPercentageToDP('50%'), offset: heightPercentageToDP('50%') * index, index}
+                                )}
                                 ListFooterComponent={this.renderFooter.bind(this)}
                                 initialNumToRender={10}
                                 ListEmptyComponent={

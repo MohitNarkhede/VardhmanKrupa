@@ -8,6 +8,8 @@ apply plugin: 'com.google.gms.google-services'
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
 react {
+    autolinkLibrariesWithApp()
+
     /* Folders */
     //   The root of your project, i.e. where "package.json" lives. Default is '..'
     // root = file("../")
@@ -80,8 +82,8 @@ android {
         applicationId "com.vardhmankrupa"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 16
-        versionName "0.97"
+        versionCode 17
+        versionName "0.98"
     }
     signingConfigs {
         debug {
@@ -124,5 +126,5 @@ dependencies {
     }
 }
 
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+// apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
