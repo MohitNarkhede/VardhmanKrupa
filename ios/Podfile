@@ -16,6 +16,14 @@ end
 
 target 'VardhmanKrupa' do
   config = use_native_modules!
+
+  # Enable or disable Hermes engine here
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    :hermes_enabled => false  # Set this to false to disable Hermes
+  )
+
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
 
