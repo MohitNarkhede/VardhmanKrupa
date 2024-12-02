@@ -95,7 +95,7 @@ class Products extends Component {
       popup: this.props.route.params?.popup,
       popup_desc: this.props.route.params?.popup_desc,
       popup_tite: this.props.route.params?.popup_tite,
-
+      product_count:0
     }
     arrCount = []
   }
@@ -361,7 +361,7 @@ class Products extends Component {
                       this.setState({ loading: false, loading1: false })
                     } else {
                       // Toast.show(res.message)
-                      this.setState({ loading: false, loading1: false, msg: res.message, products: this.state.loading ? [] : this.state.products })
+                      this.setState({ loading: false, loading1: false, msg: res.message, products: this.state.loading ? [] : this.state.products, product_count:0 })
                     }
                   })
                   .catch(e => {
@@ -546,7 +546,8 @@ class Products extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ padding: 5 }}>
                   <Image style={{ height: 28, width: 28, tintColor: checkTheme(theme).black }} resizeMode="contain" source={require('../../images/leftarrow.png')} />
                 </TouchableOpacity>
-                <Text style={{ fontFamily: Fonts.SemiBold, fontSize: FontSize.medium, color: checkTheme(theme).black }}>{this.props.route.params.subcat_data.name}</Text>
+                <Text numberOfLines={1} style={{ fontFamily: Fonts.SemiBold, fontSize: FontSize.medium, color: checkTheme(theme).black,maxWidth:'65%' }}>{this.props.route.params.subcat_data.name}</Text>
+                <Text style={{ fontFamily: Fonts.Bold, fontSize: FontSize.medium, color: checkTheme(theme).primary }}> ({this.state.product_count})</Text>
               </View>
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Search')} style={{ paddingHorizontal: 10 }}>
                 <Image style={{ height: 25, width: 25 }} resizeMode="contain" source={require('../../images/search.png')} />

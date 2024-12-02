@@ -53,6 +53,7 @@ export default class SubCategory extends React.PureComponent {
             loading: false,
             subcategories: [{}, {}, {}, {}, {}],
             cart_count: 0,
+            product_count: 0,
 
         }
 
@@ -168,7 +169,7 @@ export default class SubCategory extends React.PureComponent {
         const res = await FetchAPI(API.subcategories, "POST", Request);
         console.log(res,'subc');
         if (res.status == "success") {
-            this.setState({ subcategories: res.data, loading: false })
+            this.setState({ subcategories: res.data, loading: false, product_count:res.product_count })
         } else if (res.status == "failed") {
             AsyncStorage.removeItem('id');
             AsyncStorage.removeItem('user');
@@ -203,7 +204,8 @@ export default class SubCategory extends React.PureComponent {
                                 <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ padding: 5 }}>
                                     <Image style={{ height: 28, width: 28, tintColor: checkTheme(theme).black }} resizeMode="contain" source={require('../../images/leftarrow.png')} />
                                 </TouchableOpacity>
-                                <Text style={{ fontFamily: Fonts.SemiBold, fontSize: FontSize.medium, color: checkTheme(theme).black }}>{this.props.route.params.item.name}</Text>
+                                <Text numberOfLines={1} style={{ fontFamily: Fonts.SemiBold, fontSize: FontSize.medium, color: checkTheme(theme).black,maxWidth:'65%'  }}>{this.props.route.params.item.name}</Text>
+                                <Text style={{ fontFamily: Fonts.Bold, fontSize: FontSize.medium, color: checkTheme(theme).primary }}> ({this.state.product_count})</Text>
                             </View>
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Search')} style={{ paddingHorizontal: 10 }}>
                                 <Image style={{ height: 25, width: 25 }} resizeMode="contain" source={require('../../images/search.png')} />
