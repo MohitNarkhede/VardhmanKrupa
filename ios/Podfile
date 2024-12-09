@@ -1,50 +1,39 @@
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+platform :ios, '15.1'  # Ensure your iOS version is compatible
 
-platform :ios, min_ios_version_supported
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+$RNFirebaseAsStaticFramework = true
 prepare_react_native_project!
-
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
-
+  # Use frameworks for static linkage
+use_frameworks! :linkage => :static
+  $RNFirebaseAsStaticFramework = true
 target 'VardhmanKrupa' do
   config = use_native_modules!
 
-  # Enable or disable Hermes engine here
+  # Configure React Native
   use_react_native!(
     :path => config[:reactNativePath],
     :app_path => "#{Pod::Config.instance.installation_root}/..",
-    :hermes_enabled => false  # Set this to false to disable Hermes
+    :hermes_enabled => false  # Enable Hermes if desired
   )
 
-  use_frameworks! :linkage => :static
-  $RNFirebaseAsStaticFramework = true
+  
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
-
+  # Add dependencies for tests
   target 'VardhmanKrupaTests' do
     inherit! :complete
-    # Pods for testing
+    # Add test-specific pods here
   end
 
+  # Post-install hooks for React Native
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
-    react_native_post_install(
-      installer,
-      config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
-    )
+    react_native_post_install(installer)
+    # Workaround for Xcode 14+ issues
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+      end
+    end
   end
 end
